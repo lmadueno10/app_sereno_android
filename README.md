@@ -12,7 +12,7 @@ https://github.com/lmadueno10/app_sereno
 ```
 ### Configure Global Variables
 ```
-	HOST_REST_API, PORT_NUMBER, PATH_BASE in the GlobalVariables class of the com.appsereno.config package
+HOST_REST_API, PORT_NUMBER, PATH_BASE in the GlobalVariables class of the com.appsereno.config package
 ```
 Libraries used on this project
 ------------------------------------
