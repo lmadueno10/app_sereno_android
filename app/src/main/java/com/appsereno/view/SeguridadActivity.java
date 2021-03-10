@@ -20,6 +20,9 @@ import com.appsereno.model.SeguridadModel;
 import com.appsereno.model.webservice.WebServiceClient;
 import com.appsereno.R;
 
+/**
+ * SeguridadActivity is the class that is bound to the activity_seguridad.xml view
+ */
 public class SeguridadActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -37,14 +40,21 @@ public class SeguridadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seguridad);
         setUpDagger();
         setUpView();
-        lanzarPeticion();
+        getData();
     }
 
+    /**
+     * This method is responsible for capturing the retrofit component and performing
+     * the injection in seguridadActivity
+     */
     private void setUpDagger(){
         ((BaseApplication)getApplication()).getRetrofitComponent().inject(this);
     }
 
-    private void lanzarPeticion(){
+    /**
+     * This method makes a request for data
+     */
+    private void getData(){
 
         client
                 .getSeguridadObservavle()
@@ -77,6 +87,9 @@ public class SeguridadActivity extends AppCompatActivity {
                 );
     }
 
+    /**
+     * This method setting the data to UI
+     */
     private void setUpView(){
         seguridadModel = new SeguridadModel();
         adapter = new SeguridadAdapter(seguridadModel);

@@ -11,6 +11,9 @@ import android.widget.Button;
 
 import com.appsereno.R;
 
+/**
+ * MainActivity is the class that is bound to the activity_main.xml view
+ */
 public class MainActivity extends AppCompatActivity {
 
     Button btRxActivity;

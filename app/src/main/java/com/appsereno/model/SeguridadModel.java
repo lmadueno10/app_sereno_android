@@ -1,5 +1,9 @@
 package com.appsereno.model;
 
+/**
+ * Security Model is the class that defines the structure
+ * of the return of JSON objects from the security endpoint
+ */
 public class SeguridadModel {
     private String message;
 

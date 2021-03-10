@@ -11,6 +11,9 @@ import com.appsereno.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * SeguridadAdapter is a class that extends RecyclerView.Adapter
+ */
 public class SeguridadAdapter extends RecyclerView.Adapter<SeguridadAdapter.SeguridadAdapterHolder> {
 
     private SeguridadModel seguridadModel;
