@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">app_sereno_android</string>
+    <string name="app_name">App Sereno</string>
+    <string name="favorite">Favoritos</string>
+    <string name="content_description_favorite">Descripción</string>
+    <string name="search">Buscar</string>
+    <string name="content_description_search">Buscar</string>
+    <string name="more">Más</string>
+    <string name="content_description_more">Más</string>
+    <string name="test_label">TEst</string>
 </resources>
