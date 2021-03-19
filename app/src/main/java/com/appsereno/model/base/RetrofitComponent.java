@@ -1,6 +1,8 @@
 package com.appsereno.model.base;
 
+import com.appsereno.view.LoginActivity;
 import com.appsereno.view.SeguridadActivity;
+import com.appsereno.viewmodel.adapter.LoginViewModel;
 
 import javax.inject.Singleton;
 
@@ -18,4 +20,12 @@ public interface RetrofitComponent {
      * @param seguridadActivity {@link SeguridadActivity}
      */
     void inject(SeguridadActivity seguridadActivity);
+    /**
+     * This method is responsible of the injection the retrofit modules
+     * of the LoginActivity
+     * @param loginActivity {@link LoginActivity}
+     */
+    void inject(LoginActivity loginActivity);
+
+    void inject(LoginViewModel loginViewModel);
 }

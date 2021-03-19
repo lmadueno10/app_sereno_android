@@ -17,17 +17,20 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SeguridadAdapter extends RecyclerView.Adapter<SeguridadAdapter.SeguridadAdapterHolder> {
 
     private SeguridadModel seguridadModel;
-
+    private  View view;
     public SeguridadAdapter(SeguridadModel seguridadModel) {
         this.seguridadModel = seguridadModel;
     }
 
+    public View getView(){
+        return  this.view;
+    }
     @NonNull
     @Override
     public SeguridadAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.seguridad_response, parent, false);
-
+                this.view=itemView;
         return new SeguridadAdapterHolder(itemView);
     }
 

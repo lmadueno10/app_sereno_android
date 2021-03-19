@@ -6,5 +6,14 @@
     <string name="content_description_search">Buscar</string>
     <string name="more">Más</string>
     <string name="content_description_more">Más</string>
-    <string name="test_label">TEst</string>
+    <string name="test_label">Test</string>
+    <string name="error_connection_message">Error connection</string>
+    <string name="unser_name">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="logout">Salir</string>
+    <string name="logout_description">Cerrar sesión</string>
+    <string name="login_title">Inicio de sesión</string>
+    <string name="login_subtitle">Ingresa tu usuario y contraseña</string>
+    <string name="keep_session_text">Mantener sesión activa</string>
+    <string name="btn_login_text">INICIAR SESIÓN</string>
 </resources>

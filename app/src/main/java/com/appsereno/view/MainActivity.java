@@ -1,13 +1,13 @@
 package com.appsereno.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.appsereno.R;
 
@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button btRxActivity;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpView(){
         btRxActivity = findViewById(R.id.btRxActivity);
-        btRxActivity.setOnClickListener(new View .OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(getApplicationContext(), SeguridadActivity.class));
-        }
-    });
+        btRxActivity.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SeguridadActivity.class)));
+    }
+
+    public void logout(MenuItem item) {
+        SharedPreferences preferences=getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString("auth_token",null);
+        editor.putString("refresh_token",null);
+        editor.apply();
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }

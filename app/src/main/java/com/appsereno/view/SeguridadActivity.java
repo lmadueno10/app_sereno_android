@@ -3,6 +3,7 @@ package com.appsereno.view;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import javax.inject.Inject;
 
@@ -19,6 +20,7 @@ import com.appsereno.model.base.BaseApplication;
 import com.appsereno.model.SeguridadModel;
 import com.appsereno.model.webservice.WebServiceClient;
 import com.appsereno.R;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * SeguridadActivity is the class that is bound to the activity_seguridad.xml view
@@ -69,13 +71,22 @@ public class SeguridadActivity extends AppCompatActivity {
 
                             @Override
                             public void onNext(SeguridadModel data) {
+                                Snackbar.make(adapter.getView(),"Loading...",Snackbar.LENGTH_LONG)
+                                    .show();
                                 adapter.setData(data);
+
                             }
 
                             @Override
                             public void onError(Throwable e) {
                                 Log.d("TAG1", "Error: " + e.getMessage());
+                                Snackbar.make(adapter.getView(),"Error connection",Snackbar.LENGTH_INDEFINITE)
+                                        .setAction("Return", new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
 
+                                            }
+                                        }).show();
                             }
 
                             @Override

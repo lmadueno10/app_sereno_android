@@ -1,6 +1,7 @@
 package com.appsereno.model.base;
 
 import com.appsereno.config.GlobalVariables;
+import com.appsereno.model.webservice.LoginService;
 import com.appsereno.model.webservice.WebServiceClient;
 
 import javax.inject.Singleton;
@@ -87,5 +88,11 @@ public class RetrofitModule {
     @Provides
     WebServiceClient provideApiClient(Retrofit retrofit){
         return retrofit.create(WebServiceClient.class);
+    }
+
+    @Singleton
+    @Provides
+    LoginService provideApiLogin(Retrofit retrofit){
+        return  retrofit.create(LoginService.class);
     }
 }
