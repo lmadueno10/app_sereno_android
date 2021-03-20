@@ -9,7 +9,7 @@ public class Usuario {
     private String usuario;
     @SerializedName("nombres_apellidos")
     private String nombresApellidos;
-    @SerializedName("profile")
+    @SerializedName("profile_id")
     private int profile;
 
     public Usuario(int id, String usuario, String nombresApellidos, int profile) {

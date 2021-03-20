@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303F9F"
+    android:elevation="@dimen/elevation_boton"
+    >
+
+    <TextView
+        android:id="@+id/dwh_text_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingLeft="20dp"
+        android:text="Carolina Carrera"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dwh_text_secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 47458461"
+        android:textColor="#ddd"
+        android:paddingLeft="20dp"
+        android:paddingBottom="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dwh_text_main" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

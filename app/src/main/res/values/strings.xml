@@ -16,4 +16,6 @@
     <string name="login_subtitle">Ingresa tu usuario y contraseña</string>
     <string name="keep_session_text">Mantener sesión activa</string>
     <string name="btn_login_text">INICIAR SESIÓN</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

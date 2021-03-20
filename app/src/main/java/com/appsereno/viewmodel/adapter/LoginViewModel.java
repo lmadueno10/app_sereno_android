@@ -64,14 +64,15 @@ public class LoginViewModel extends ViewModel {
 
                             })
                             .show();
-                } else {
+                } else {/*
                     Snackbar.make(v, "Inicio Session Correcta", Snackbar.LENGTH_LONG)
-                            .show();
+                            .show();*/
                     if (preferences != null) {
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString("auth_token", login.getAuth_token());
                         editor.putString("refresh_token", login.getRefresh_token());
                         editor.putInt("user_id", login.getUser().getId());
+                        editor.putString("user", login.getUser().getUsuario());
                         editor.putString("user_info", login.getUser().getNombresApellidos());
                         editor.putInt("user_profile", login.getUser().getProfile());
                         editor.putBoolean("keep_alive", keepAlive);

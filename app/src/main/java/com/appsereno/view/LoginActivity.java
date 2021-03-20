@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +15,8 @@ import com.appsereno.R;
 import com.appsereno.model.base.BaseApplication;
 import com.appsereno.viewmodel.adapter.LoginViewModel;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText editTextPassword;
@@ -26,10 +29,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         preferences=getSharedPreferences("credenciales",Context.MODE_PRIVATE);
-        editTextPassword=(TextInputEditText) findViewById(R.id.editTextTextPassword);
-        editTextUsuario=(TextInputEditText) findViewById(R.id.editTextTextUsuario);
-        Button btnSignin = (Button) findViewById(R.id.btn_signin);
-        cbxActive=(CheckBox)findViewById(R.id.cbxActive);
+        editTextPassword= findViewById(R.id.editTextTextPassword);
+        editTextUsuario= findViewById(R.id.editTextTextUsuario);
+        Button btnSignin = findViewById(R.id.btn_signin);
+        cbxActive= findViewById(R.id.cbxActive);
         btnSignin.setOnClickListener(this::logIn);
         SharedPreferences preferences=getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         String refreshToken=preferences.getString("refresh_token","0");
@@ -41,14 +44,18 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     public void logIn(View v){
-        if(editTextUsuario.getText().length()<=0){
-            editTextUsuario.setError("Ingrese un usuario válido");
-        }else if(editTextPassword.getText().length()<=0){
-            editTextPassword.setError("Ingrese una contraseña válida");
-        }else{
-        LoginViewModel loginViewModel = new LoginViewModel(((BaseApplication)getApplication()));
+        try {
+            if (Objects.requireNonNull(editTextUsuario.getText()).toString().isEmpty()) {
+                editTextUsuario.setError("Ingrese un usuario válido");
+            } else if (Objects.requireNonNull(editTextPassword.getText()).toString().isEmpty()) {
+                editTextPassword.setError("Ingrese una contraseña válida");
+            } else {
+                LoginViewModel loginViewModel = new LoginViewModel(((BaseApplication) getApplication()));
 
-            loginViewModel.signIn(editTextUsuario.getText().toString(), editTextPassword.getText().toString(),v,preferences, this, cbxActive.isChecked());
+                loginViewModel.signIn(editTextUsuario.getText().toString(), editTextPassword.getText().toString(), v, preferences, this, cbxActive.isChecked());
+            }
+        }catch (NullPointerException e){
+            Log.d("ERROR",e.getMessage());
         }
     }
     @Override

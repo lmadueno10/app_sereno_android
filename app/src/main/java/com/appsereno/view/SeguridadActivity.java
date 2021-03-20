@@ -1,8 +1,13 @@
 package com.appsereno.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import javax.inject.Inject;
@@ -115,5 +120,15 @@ public class SeguridadActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         disposable.dispose();
+    }
+
+    public void logout(MenuItem item) {
+        SharedPreferences preferences=getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString("auth_token",null);
+        editor.putString("refresh_token",null);
+        editor.apply();
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }
