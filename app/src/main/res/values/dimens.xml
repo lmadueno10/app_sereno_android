@@ -3,4 +3,5 @@
     <dimen name="elevation_toolbar">4dp</dimen>
     <dimen name="margin_boton">16dp</dimen>
     <dimen name="elevation_boton">10dp</dimen>
+    <dimen name="default_height_button">70dp</dimen>
 </resources>

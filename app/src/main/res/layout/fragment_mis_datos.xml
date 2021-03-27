@@ -17,6 +17,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -31,32 +32,32 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:enabled="false"
-                android:background="@color/white"
-                android:text="Código"
+                android:hint="Código"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:hintTextColor="@color/black"
-            android:background="@color/white"
+            android:hint="DNI"
             app:startIconDrawable="@drawable/ic_baseline_person_24"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/user_dni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:enabled="false"
-                android:background="@color/white"
-                android:text="DNI"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
@@ -71,15 +72,14 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:enabled="false"
-                android:background="@color/white"
-                android:text="Nombres y Apellidos"
+                android:hint="Nombres y Apellidos"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
-            android:background="@color/white"
             android:layout_marginTop="25dp"
             app:startIconDrawable="@drawable/ic_baseline_person_24"
             >
@@ -90,15 +90,14 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:enabled="false"
-                android:background="@color/white"
-                android:text="Sector asignado"
+                android:hint="Sector asignado"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
-            android:background="@color/white"
             android:layout_marginTop="25dp"
             app:startIconDrawable="@drawable/ic_baseline_person_24"
             >
@@ -109,15 +108,14 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:enabled="false"
-                android:background="@color/white"
-                android:text="Celular"
+                android:hint="Celular"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/black"
-            android:background="@color/white"
             android:layout_marginTop="25dp"
             app:startIconDrawable="@drawable/ic_baseline_person_24"
             >
@@ -128,8 +126,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:enabled="false"
-                android:background="@color/white"
-                android:text="Supervisado por"
+                android:hint="Supervisado por"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 

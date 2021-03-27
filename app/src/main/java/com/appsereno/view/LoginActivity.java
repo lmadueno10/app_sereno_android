@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,6 +58,17 @@ public class LoginActivity extends AppCompatActivity {
         }catch (NullPointerException e){
             Log.d("ERROR",e.getMessage());
         }
+    }
+    public void initProgress(){
+        LinearLayout ll=findViewById(R.id.opacity_login);
+        ll.setVisibility(View.VISIBLE);
+
+    }
+
+    public void endProgress(){
+        LinearLayout ll=findViewById(R.id.opacity_login);
+        ll.setVisibility(View.GONE);
+
     }
     @Override
     protected void onDestroy() {

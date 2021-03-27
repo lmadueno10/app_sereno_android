@@ -18,4 +18,8 @@
     <string name="btn_login_text">INICIAR SESIÓN</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="home">Inicio</string>
+    <string name="report_title">Reportar</string>
+    <string name="pending_title">Pendientes</string>
+    <string name="stream_title">Transmitir</string>
 </resources>

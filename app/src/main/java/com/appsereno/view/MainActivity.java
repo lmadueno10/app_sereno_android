@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -21,7 +23,11 @@ import androidx.fragment.app.FragmentTransaction;
 import com.appsereno.R;
 import com.appsereno.view.fragments.MainFragment;
 import com.appsereno.view.fragments.MisDatosFragment;
+import com.appsereno.view.fragments.PendientesFragment;
+import com.appsereno.view.fragments.ReportarIncidenciaFragment;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 /**
@@ -35,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        materialToolbar=findViewById(R.id.topAppBar);
+        materialToolbar=findViewById(R.id.app_main_menu);
         setSupportActionBar(materialToolbar);
         drawerLayout=findViewById(R.id.drawer);
         navigationView=findViewById(R.id.navigationView);
@@ -54,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         fillData();
         fillMenu();
+        loadBottomMenu();
     }
 
     public void logout(MenuItem item) {
@@ -86,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void fillMenu(){
+    private void fillMenu() {
         try {
 
             SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
@@ -95,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             MenuItem menuItem = menu.getItem(0);
             SubMenu subMenu = menuItem.getSubMenu();
 
-            MenuItem menuItemMD= subMenu.getItem(0);
+            MenuItem menuItemMD = subMenu.getItem(0);
             menuItemMD.setOnMenuItemClickListener(item -> {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 fragmentManager = getSupportFragmentManager();
@@ -119,8 +128,49 @@ public class MainActivity extends AppCompatActivity {
 
             MenuItem menuItemTC = subMenu.add("Términos y condiciones");
             menuItemTC.setIcon(R.drawable.ic_book_24);
-        }catch (Exception e){
-            Log.d("ERROR",e.getMessage());
+        } catch (Exception e) {
+            Log.d("ERROR", e.getMessage());
         }
     }
+    public void loadBottomMenu(){
+        bottomNavigationView=findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
+        BadgeDrawable badge = bottomNavigationView.getOrCreateBadge(R.id.page_pending);
+        badge.setVisible(true);
+        badge.setNumber(5);
+    }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.page_home:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new MainFragment());
+                fragmentTransaction.commit();
+                materialToolbar.setTitle("App Sereno");
+                return true;
+            case R.id.page_pending:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new PendientesFragment());
+                fragmentTransaction.commit();
+                materialToolbar.setTitle("Pendientes");
+                return true;
+            case R.id.page_report:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new ReportarIncidenciaFragment());
+                fragmentTransaction.commit();
+                materialToolbar.setTitle("Reportar Incidencia");
+                return true;
+            case R.id.page_stream:
+                Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(takeVideoIntent);
+                }
+                return false ;
+        }
+        return false;
+    }
+
+
 }

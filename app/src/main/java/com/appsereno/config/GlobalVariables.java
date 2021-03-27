@@ -9,8 +9,8 @@ package com.appsereno.config;
  * </ul>
  */
 public final class GlobalVariables {
-    public static final String HOST_REST_API="http://192.168.8.129";
-    public static final int PORT_NUMBER=3000;
+    public static final String HOST_REST_API="http://app-sereno.herokuapp.com";
+    public static final int PORT_NUMBER=80;
     public static final String PATH_BASE="api";
 
     /**
@@ -18,6 +18,6 @@ public final class GlobalVariables {
      * @return {@link String}   the URI of rest API
      */
     public static String getBaseUri(){
-        return HOST_REST_API+":"+PORT_NUMBER+"/"+PATH_BASE+"/";
+        return HOST_REST_API+":"+(PORT_NUMBER!=80?PORT_NUMBER:"")+"/"+PATH_BASE+"/";
     }
 }

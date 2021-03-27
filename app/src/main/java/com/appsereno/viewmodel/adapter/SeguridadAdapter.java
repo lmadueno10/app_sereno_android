@@ -51,9 +51,9 @@ public class SeguridadAdapter extends RecyclerView.Adapter<SeguridadAdapter.Segu
         notifyDataSetChanged();
     }
 
-    public class SeguridadAdapterHolder extends RecyclerView.ViewHolder {
-        private TextView mesage;
-        private TextView data;
+    public static class SeguridadAdapterHolder extends RecyclerView.ViewHolder {
+        private final TextView mesage;
+        private final TextView data;
 
         public SeguridadAdapterHolder(@NonNull View itemView) {
             super(itemView);

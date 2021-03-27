@@ -3,6 +3,8 @@
     package="com.appsereno">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:name=".model.base.BaseApplication"
@@ -20,9 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.SeguridadActivity" />
+        <activity android:name=".view.SeguridadActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.MainActivity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             >
         </activity>

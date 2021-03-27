@@ -9,33 +9,24 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Scrollable content -->
-        <androidx.appcompat.widget.LinearLayoutCompat
+
+
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Test">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btRxActivity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Testing App Sereno" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
+            android:layout_height="wrap_content"
+            android:contentDescription="Dashboard
+"
+            android:foregroundGravity="fill_horizontal|fill_vertical|fill"
+            android:scaleType="fitXY"
+            app:srcCompat="@mipmap/dashboard" />
     </androidx.core.widget.NestedScrollView>
 
 

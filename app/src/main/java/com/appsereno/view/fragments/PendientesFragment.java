@@ -11,12 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.appsereno.R;
 
-public class MainFragment extends Fragment{
-
+public class PendientesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main,container,false);
+        return inflater.inflate(R.layout.fragment_pendientes,container,false);
     }
-
 }

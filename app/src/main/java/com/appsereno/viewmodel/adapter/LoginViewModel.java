@@ -37,9 +37,11 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void signIn(String usuario, String password, View v, SharedPreferences preferences, LoginActivity loginActivity, boolean keepAlive){
+
         Observer<Login> observer = new Observer<Login>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
+                loginActivity.initProgress();
                 disposable = d;
             }
 
@@ -52,13 +54,19 @@ public class LoginViewModel extends ViewModel {
             @Override
             public void onError(Throwable e) {
                 Log.d("TAG1", "Error: " + e.getMessage());
+                loginActivity.endProgress();
+                Snackbar.make(v, "Ocurrio un error de conexión.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("ok", v1 -> {
 
+                        })
+                        .show();
             }
 
             @Override
             public void onComplete() {
                 Log.d("TAG1", "OnComplete: ");
                 if (login.getCode() == 200 || login.getCode() == 204) {
+                    loginActivity.endProgress();
                     Snackbar.make(v, "Usuario o contraseña incorrecto.", Snackbar.LENGTH_INDEFINITE)
                             .setAction("ok", v1 -> {
 
