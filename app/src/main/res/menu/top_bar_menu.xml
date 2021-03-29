@@ -2,23 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item_stream"
-        android:icon="@drawable/ic_videocam_24"
+        android:id="@+id/top_item_stream"
+        android:icon="@drawable/ic_video_call_24"
         android:title="@string/favorite"
         android:contentDescription="@string/content_description_favorite"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/top_item_search"
         android:icon="@drawable/ic_search_24dp"
         android:title="@string/search"
         android:contentDescription="@string/content_description_search"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/logout"
+        android:id="@+id/top_item_logout"
         android:title="@string/logout"
         android:contentDescription="@string/logout_description"
-        android:onClick="logout"
         app:showAsAction="never" />
 </menu>

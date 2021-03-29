@@ -44,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
     public void logIn(View v){
         try {
             if (Objects.requireNonNull(editTextUsuario.getText()).toString().isEmpty()) {

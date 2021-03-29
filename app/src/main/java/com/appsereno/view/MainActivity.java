@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -29,6 +30,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * MainActivity is the class that is bound to the activity_main.xml view
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
-
+        this.finish();
     }
 
     private  void fillData(){
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.main_container, new MisDatosFragment());
                 fragmentTransaction.commit();
                 materialToolbar.setTitle("Mis datos");
-                return false;
+                return true;
             });
 
             MenuItem menuItemMT = subMenu.add("Notificaciones");
@@ -140,37 +142,69 @@ public class MainActivity extends AppCompatActivity {
         badge.setNumber(5);
     }
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.page_home:
+        final int id=item.getItemId();
+        final int pageHome=R.id.page_home;
+        final int pagePending = R.id.page_pending;
+        final int pageReport=R.id.page_report;
+        final int pageStreaming=R.id.page_stream;
+        switch (id){
+            case pageHome:
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new MainFragment());
                 fragmentTransaction.commit();
                 materialToolbar.setTitle("App Sereno");
                 return true;
-            case R.id.page_pending:
+            case pagePending:
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new PendientesFragment());
                 fragmentTransaction.commit();
                 materialToolbar.setTitle("Pendientes");
                 return true;
-            case R.id.page_report:
+            case pageReport:
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new ReportarIncidenciaFragment());
                 fragmentTransaction.commit();
                 materialToolbar.setTitle("Reportar Incidencia");
                 return true;
-            case R.id.page_stream:
-                Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(takeVideoIntent);
-                }
+            case pageStreaming :
+                initCamera();
                 return false ;
         }
         return false;
     }
 
+    public void initCamera(){
+        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(takeVideoIntent);
+        }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.top_bar_menu,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuItem){
+        final int id= menuItem.getItemId();
+        final int topItemStream=R.id.top_item_stream;
+        final int topItemSearch=R.id.top_item_search;
+        final int topItemLogout=R.id.top_item_logout;
+        switch(id){
+            case topItemStream:
+                initCamera();
+                break;
+            case topItemSearch:
+                Snackbar.make(findViewById(R.id.main_container),"Buscando...",Snackbar.LENGTH_LONG).show();
+                break;
+            case topItemLogout:
+                logout(menuItem);
+                break;
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
 
 }
