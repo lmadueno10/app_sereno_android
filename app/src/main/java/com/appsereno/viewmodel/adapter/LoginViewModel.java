@@ -16,18 +16,25 @@ import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
+/**
+ * LoginViewModel is the class that is responsible for receiving the data from the REST API and
+ * passing it to the LoginActivity view
+ */
 public class LoginViewModel extends ViewModel {
 
     @Inject
     LoginService loginService;
     Disposable disposable;
     private Login login;
+    public LoginViewModel(){
+    }
+    
     public LoginViewModel(BaseApplication app){
         initializeDagger(app);
     }
@@ -97,5 +104,15 @@ public class LoginViewModel extends ViewModel {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
+    }
+
+    /**
+     *
+     * @param user 
+     * @param pass
+     * @return Observable<Login>
+     */
+    public Observable<Login> getLogin(String user, String pass){
+        return loginService.getLoginObservable(user,pass);
     }
 }

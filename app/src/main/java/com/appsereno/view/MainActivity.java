@@ -1,5 +1,6 @@
 package com.appsereno.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +12,6 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -29,6 +29,7 @@ import com.appsereno.view.fragments.ReportarIncidenciaFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -68,14 +69,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logout(MenuItem item) {
-        SharedPreferences preferences=getSharedPreferences("credenciales", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
-        editor.putString("auth_token",null);
-        editor.putString("refresh_token",null);
-        editor.apply();
-        Intent intent=new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        this.finish();
+        MaterialAlertDialogBuilder materialAlertDialogBuilder= new MaterialAlertDialogBuilder(this);
+        materialAlertDialogBuilder.setTitle("Cerrar sesión");
+        materialAlertDialogBuilder.setMessage("¿Estas seguro que deseas cerrar tu sesión?");
+        materialAlertDialogBuilder.setPositiveButton("Cerrar sesión", (dialog, which) -> {
+            SharedPreferences preferences=getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor=preferences.edit();
+            editor.putString("auth_token",null);
+            editor.putString("refresh_token",null);
+            editor.apply();
+            Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            MainActivity.this.finish();
+        });
+        materialAlertDialogBuilder.setNegativeButton("Cancelar", (dialog, which) -> {
+
+        });
+        materialAlertDialogBuilder.show();
     }
 
     private  void fillData(){
@@ -176,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     public void initCamera(){
         Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {

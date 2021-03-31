@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.appsereno.R;
 
+/**
+ * ReportarIncidenciaFragment is the class that is bound to the fragment_reportar_incidencia.xml view
+ */
 public class ReportarIncidenciaFragment extends Fragment {
     @Nullable
     @Override

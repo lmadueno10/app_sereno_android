@@ -1,5 +1,9 @@
 package com.appsereno.model.entities;
 
+/**
+ * Token is the class that defines the structure
+ * of the return of JSON objects from the auth/signin endpoint
+ */
 public class Token {
     private int code;
     private String token;

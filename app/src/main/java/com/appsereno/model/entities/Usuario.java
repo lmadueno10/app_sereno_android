@@ -1,7 +1,10 @@
 package com.appsereno.model.entities;
 
 import com.google.gson.annotations.SerializedName;
-
+/**
+ * Usuario is the class that defines the structure
+ * of the return of JSON objects from the auth/signin endpoint
+ */
 public class Usuario {
     @SerializedName("id")
     private int id;

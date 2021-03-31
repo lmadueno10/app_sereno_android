@@ -10,7 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.appsereno.R;
-
+/**
+ * PendientesFragment is the class that is bound to the fragment_pendientes.xml view
+ */
 public class PendientesFragment extends Fragment {
     @Nullable
     @Override

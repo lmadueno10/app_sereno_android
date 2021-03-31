@@ -10,7 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.appsereno.R;
-
+/**
+ * MisDatosFragment is the class that is bound to the fragment_misdatos.xml view
+ */
 public class MisDatosFragment extends Fragment{
 
     @Nullable

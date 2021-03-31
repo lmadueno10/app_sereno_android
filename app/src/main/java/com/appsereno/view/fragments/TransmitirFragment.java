@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.appsereno.R;
 
+/**
+ * MainFragment is the class that is bound to the fragment_transmitir.xml view
+ */
 public class TransmitirFragment extends Fragment {
     @Nullable
     @Override

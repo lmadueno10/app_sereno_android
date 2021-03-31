@@ -18,7 +18,10 @@ import com.appsereno.viewmodel.adapter.LoginViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
-
+/**
+ * LoginActivity is the class that is bound to the activity_login.xml view
+ * defines the behavior of the view when the user interacts
+ */
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText editTextPassword;
     private TextInputEditText editTextUsuario;

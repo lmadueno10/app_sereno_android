@@ -4,7 +4,7 @@
     <item
         android:id="@+id/top_item_stream"
         android:icon="@drawable/ic_video_call_24"
-        android:title="@string/favorite"
+        android:title="@string/streaming_live"
         android:contentDescription="@string/content_description_favorite"
         app:showAsAction="ifRoom"/>
 

@@ -22,4 +22,6 @@
     <string name="report_title">Reportar</string>
     <string name="pending_title">Pendientes</string>
     <string name="stream_title">Transmitir</string>
+    <string name="streaming_live">Transmisión en vivo</string>
+    <string name="content_description_streaming_live">Transmisión en vivo</string>
 </resources>

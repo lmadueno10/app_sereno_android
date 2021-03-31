@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.appsereno.R;
 
+/**
+ * MainFragment is the class that is bound to the fragment_main.xml view
+ */
 public class MainFragment extends Fragment{
 
     @Nullable
