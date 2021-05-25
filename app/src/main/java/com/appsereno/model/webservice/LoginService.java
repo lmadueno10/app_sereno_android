@@ -21,7 +21,7 @@ public interface LoginService {
      * This method always returns Observable<{@link Login}>
      * @return Observable<Login>
      */
-    @POST("auth/signin")
+    @POST("auth/signin-personal")
     @FormUrlEncoded
     Observable<Login> getLoginObservable(@Field("usuario") String usuario,@Field("password") String password);
 

@@ -51,7 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void logIn(View v){
         try {
-            if (Objects.requireNonNull(editTextUsuario.getText()).toString().isEmpty()) {
+            if (Objects.requireNonNull(editTextUsuario.getText()).toString()
+                    .isEmpty()) {
                 editTextUsuario.setError("Ingrese un usuario válido");
             } else if (Objects.requireNonNull(editTextPassword.getText()).toString().isEmpty()) {
                 editTextPassword.setError("Ingrese una contraseña válida");

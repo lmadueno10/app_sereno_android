@@ -6,20 +6,41 @@ import com.google.gson.annotations.SerializedName;
  * of the return of JSON objects from the auth/signin endpoint
  */
 public class Usuario {
-    @SerializedName("id")
+    @SerializedName("id_usuario")
     private int id;
     @SerializedName("usuario")
     private String usuario;
+    @SerializedName("codigo")
+    private String codigoUsuario;
+    @SerializedName("sector")
+    private String sector;
     @SerializedName("nombres_apellidos")
     private String nombresApellidos;
-    @SerializedName("profile_id")
-    private int profile;
+    @SerializedName("dni")
+    private String dni;
+    @SerializedName("celular")
+    private String celular;
+    @SerializedName("id_supervisor")
+    private  String supervisor;
+    @SerializedName("id_personal")
+    private int idPersonal;
+    @SerializedName("emei")
+    private String emei;
+    @SerializedName("estado")
+    private int estado;
 
-    public Usuario(int id, String usuario, String nombresApellidos, int profile) {
+    public Usuario(int id, String usuario, String codigoUsuario, String sector, String nombresApellidos, String dni, String celular, String supervisor, int idPersonal, String emei, int estado) {
         this.id = id;
         this.usuario = usuario;
+        this.codigoUsuario = codigoUsuario;
+        this.sector = sector;
         this.nombresApellidos = nombresApellidos;
-        this.profile = profile;
+        this.dni = dni;
+        this.celular = celular;
+        this.supervisor = supervisor;
+        this.idPersonal = idPersonal;
+        this.emei = emei;
+        this.estado = estado;
     }
 
     public int getId() {
@@ -38,6 +59,22 @@ public class Usuario {
         this.usuario = usuario;
     }
 
+    public String getCodigoUsuario() {
+        return codigoUsuario;
+    }
+
+    public void setCodigoUsuario(String codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
     public String getNombresApellidos() {
         return nombresApellidos;
     }
@@ -46,12 +83,52 @@ public class Usuario {
         this.nombresApellidos = nombresApellidos;
     }
 
-    public int getProfile() {
-        return profile;
+    public String getDni() {
+        return dni;
     }
 
-    public void setProfile(int profile) {
-        this.profile = profile;
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(String supervisor) {
+        this.supervisor = supervisor;
+    }
+
+    public int getIdPersonal() {
+        return idPersonal;
+    }
+
+    public void setIdPersonal(int idPersonal) {
+        this.idPersonal = idPersonal;
+    }
+
+    public String getEmei() {
+        return emei;
+    }
+
+    public void setEmei(String emei) {
+        this.emei = emei;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
     @Override
@@ -59,8 +136,15 @@ public class Usuario {
         return "Usuario{" +
                 "id=" + id +
                 ", usuario='" + usuario + '\'' +
+                ", codigoUsuario='" + codigoUsuario + '\'' +
+                ", sector='" + sector + '\'' +
                 ", nombresApellidos='" + nombresApellidos + '\'' +
-                ", profile=" + profile +
+                ", dni='" + dni + '\'' +
+                ", celular='" + celular + '\'' +
+                ", supervisor='" + supervisor + '\'' +
+                ", idPersonal=" + idPersonal +
+                ", emei='" + emei + '\'' +
+                ", estado=" + estado +
                 '}';
     }
 }

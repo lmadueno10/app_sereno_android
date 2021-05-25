@@ -15,3 +15,5 @@
 local.properties
 docs
 /app/release
+/app/src/debug
+/app/src/release

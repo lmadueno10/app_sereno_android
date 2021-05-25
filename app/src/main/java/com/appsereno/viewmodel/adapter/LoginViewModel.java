@@ -62,11 +62,12 @@ public class LoginViewModel extends ViewModel {
             public void onError(Throwable e) {
                 Log.d("TAG1", "Error: " + e.getMessage());
                 loginActivity.endProgress();
-                Snackbar.make(v, "Ocurrio un error de conexión.", Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(v, "ocurrió un error de conexión."+e.getMessage(), Snackbar.LENGTH_INDEFINITE)
                         .setAction("ok", v1 -> {
 
                         })
                         .show();
+                e.printStackTrace();
             }
 
             @Override
@@ -89,9 +90,15 @@ public class LoginViewModel extends ViewModel {
                         editor.putInt("user_id", login.getUser().getId());
                         editor.putString("user", login.getUser().getUsuario());
                         editor.putString("user_info", login.getUser().getNombresApellidos());
-                        editor.putInt("user_profile", login.getUser().getProfile());
+                        editor.putString("dni", login.getUser().getDni());
+                        editor.putString("user_code", login.getUser().getCodigoUsuario());
+                        editor.putString("sector_id", login.getUser().getSector());
+                        editor.putString("celular", login.getUser().getCelular());
+                        editor.putString("supervisor", login.getUser().getSupervisor());
+                        editor.putInt("id_personal",login.getUser().getIdPersonal());
                         editor.putBoolean("keep_alive", keepAlive);
                         editor.apply();
+                        Log.i("LOGIN",login.toString());
                         Intent intent = new Intent(loginActivity, MainActivity.class);
                         loginActivity.startActivity(intent);
                         loginActivity.finish();

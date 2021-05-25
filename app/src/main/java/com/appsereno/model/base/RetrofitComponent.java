@@ -2,6 +2,10 @@ package com.appsereno.model.base;
 
 import com.appsereno.view.LoginActivity;
 import com.appsereno.view.SeguridadActivity;
+import com.appsereno.view.fragments.DetalleIncidenteAcionesFragment;
+import com.appsereno.view.fragments.DetalleIncidenteFragment;
+import com.appsereno.view.fragments.IncidentesReportadosPorMIFragment;
+import com.appsereno.view.fragments.ReportarIncidenciaFragment;
 import com.appsereno.viewmodel.adapter.LoginViewModel;
 
 import javax.inject.Singleton;
@@ -28,4 +32,30 @@ public interface RetrofitComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(LoginViewModel loginViewModel);
+
+    /**
+     * This method is responsible of the injection the retrofit modules
+     * of the LoginActivity
+     * @param detalleIncidenteFragment {@link DetalleIncidenteFragment}
+     */
+    void inject(DetalleIncidenteFragment detalleIncidenteFragment);
+    /**
+     * This method is responsible of the injection the retrofit modules
+     * of the ReportarIncidenciaFragment
+     * @param reportarIncidenciaFragment {@link ReportarIncidenciaFragment}
+     */
+    void inject(ReportarIncidenciaFragment reportarIncidenciaFragment);
+    /**
+     * This method is responsible of the injection the retrofit modules
+     * of the DetalleIncidenteAcionesFragment
+     * @param detalleIncidenteAcionesFragment {@link DetalleIncidenteAcionesFragment}
+     */
+    void inject(DetalleIncidenteAcionesFragment detalleIncidenteAcionesFragment);
+
+    /**
+     * This method is responsible of the injection the retrofit modules
+     * of the IncidentesReportadosPorMIFragment
+     * @param incidentesReportadosPorMIFragment {@link IncidentesReportadosPorMIFragment}
+     */
+    void inject(IncidentesReportadosPorMIFragment incidentesReportadosPorMIFragment);
 }

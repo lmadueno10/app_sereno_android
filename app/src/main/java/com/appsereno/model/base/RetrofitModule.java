@@ -1,6 +1,7 @@
 package com.appsereno.model.base;
 
 import com.appsereno.config.GlobalVariables;
+import com.appsereno.model.webservice.IncidenciaService;
 import com.appsereno.model.webservice.LoginService;
 import com.appsereno.model.webservice.WebServiceClient;
 
@@ -94,5 +95,16 @@ public class RetrofitModule {
     @Provides
     LoginService provideApiLogin(Retrofit retrofit){
         return  retrofit.create(LoginService.class);
+    }
+
+    /**
+     * This method always returns IncidenciaService
+     * @param retrofit Retrofit
+     * @return IncidenciaService
+     */
+    @Singleton
+    @Provides
+    IncidenciaService provideApiIncidencia(Retrofit retrofit){
+        return retrofit.create(IncidenciaService.class);
     }
 }
